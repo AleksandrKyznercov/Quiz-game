@@ -11,6 +11,6 @@ import java.util.ArrayList;
 public class Category {
 
     @Getter @Setter private static String name;
-    @Getter @Setter private static ArrayList types;
+    @Getter @Setter private static ArrayList questionTypes;
 
 }

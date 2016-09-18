@@ -24,4 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile files('libs/lombok.jar')
+    provided 'org.glassfish:javax.annotation:10.0-b28'//Возможно это костыль для генерации анотаций в lombok :D
 }

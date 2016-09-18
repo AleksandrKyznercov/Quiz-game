@@ -19,8 +19,19 @@ public class Question {
     public Question(String text, Diffucilty difficulty, String rightAnswer, ArrayList answerOptions, QuestionType questionType) {
         this.text = text;
         this.difficulty = difficulty;
-        this.rightAnswer = new Answer(rightAnswer);// ответ создается в конструкторе вопроса, так?
+        this.rightAnswer = this.new Answer(rightAnswer);
         this.answerOptions = answerOptions;
         this.questionType = questionType;
+
     }
+
+    public class Answer {
+
+        @Getter @Setter private String text;
+
+        public Answer(String text) {
+            this.text = text;
+        }
+    }
+
 }
