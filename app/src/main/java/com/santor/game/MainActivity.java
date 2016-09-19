@@ -1,13 +1,16 @@
 package com.santor.game;
 
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     Button btnExit, btnNewGame;
 
@@ -19,26 +22,9 @@ public class MainActivity extends AppCompatActivity {
         btnExit = (Button) findViewById(R.id.btnExit);
         btnNewGame = (Button) findViewById(R.id.NewGame);
 
-
-        // обработчик нажатия кнопки выход
-        View.OnClickListener oclBtnEx = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Кнопка Exit нажата
-                finish();
-            }
-        };
-
-        View.OnClickListener oclBtnNewGame = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.category);
-            }
-        };
-
         // присвоим обработчик кнопке выход (btnExit)
-        btnExit.setOnClickListener(oclBtnEx);
-        btnNewGame.setOnClickListener(oclBtnNewGame);
+        btnExit.setOnClickListener(this);
+        btnNewGame.setOnClickListener(this);
     }
 
     @Override
@@ -67,5 +53,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         quitDialog.show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.NewGame:
+                Intent intent = new Intent(this, CategoryActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnExit:
+                finish();
+                break;
+            default:
+                //Что-то пошло не так
+        }
     }
 }

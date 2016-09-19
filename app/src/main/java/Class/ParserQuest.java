@@ -8,6 +8,7 @@ import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Станислав on 19.09.2016.
@@ -71,7 +72,7 @@ public class ParserQuest extends Activity {
         List<Question> newQuestions = new ArrayList<>();
 
         for(Question question : _questList){
-            if(question.getCategory() == category && question.getDifficulty() == diffucilty){
+            if(Objects.equals(question.getCategory(), category) && question.getDifficulty() == diffucilty){
                 newQuestions.add(question);
             }
         }

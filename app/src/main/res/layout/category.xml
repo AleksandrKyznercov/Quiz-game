@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Пример категории"
-        android:id="@+id/btnCuntry"
+        android:id="@+id/btnCar"
         android:layout_gravity="center"
         android:layout_marginTop="30dp" />
 
