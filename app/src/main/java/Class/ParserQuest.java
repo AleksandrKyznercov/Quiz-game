@@ -8,7 +8,6 @@ import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Станислав on 19.09.2016.
