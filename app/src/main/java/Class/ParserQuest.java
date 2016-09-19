@@ -65,19 +65,26 @@ public class ParserQuest extends Activity {
     }
 
     /**
-     * Получить вопросы по определённой категории
+     * Получить вопросы по определённой категории и сложностью
      */
-    public List<Question> getQuestionsByCategory(String category){
+    public List<Question> getQuestOfParametrs(String category, Diffucilty diffucilty){
 
         List<Question> newQuestions = new ArrayList<>();
 
         for(Question question : _questList){
-            if(Objects.equals(question.getCategory(), category)){
+            if(question.getCategory() == category && question.getDifficulty() == diffucilty){
                 newQuestions.add(question);
             }
         }
 
         return newQuestions;
+    }
+
+    /**
+     * Получить общее количество вопросов
+     */
+    public int getCountQuest(){
+        return _questList.size();
     }
 
     /**
