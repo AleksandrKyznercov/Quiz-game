@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    quest_text: текст вопроса, может быть ссылка на картинку
+    answerOptions должен содержать rightAnswer
+ -->
+
+<questions>
+    <question category="car" quest_text="Сколько колёс у машины?" rightAnswer="4" answerOptions="2;8;6;4" Diffucilty="hard" />
+    <question category="car" quest_text="В каком году состоялся первый чемпионат Формулы-1?" rightAnswer="1950" answerOptions="1950;1996;1974;1940" Diffucilty="hard" />
+</questions>

@@ -1,6 +1,7 @@
 package Class;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,28 +11,66 @@ import lombok.Setter;
  */
 public class Question {
 
-    @Getter @Setter private static String text;
-    @Getter @Setter private static Diffucilty difficulty;
-    @Getter @Setter private static Answer rightAnswer;
-    @Getter @Setter private static ArrayList answerOptions;
-    @Getter @Setter private static QuestionType questionType;
+    protected String _text;
+    protected Diffucilty _difficulty;
+    protected String _rightAnswer;
+    protected List<String> _answerOptions;
+    protected QuestionType _questionType;
+    protected String _category;
 
     public Question(String text, Diffucilty difficulty, String rightAnswer, ArrayList answerOptions, QuestionType questionType) {
-        this.text = text;
-        this.difficulty = difficulty;
-        this.rightAnswer = this.new Answer(rightAnswer);
-        this.answerOptions = answerOptions;
-        this.questionType = questionType;
-
+        _text = text;
+        _difficulty = difficulty;
+        //this.rightAnswer = this.new Answer(rightAnswer);
+        _answerOptions = answerOptions;
+        _questionType = questionType;
     }
 
-    public class Answer {
-
-        @Getter @Setter private String text;
-
-        public Answer(String text) {
-            this.text = text;
-        }
+    public Question(String text, Diffucilty difficulty, String rightAnswer, List answerOptions, String category) {
+        _text = text;
+        _difficulty = difficulty;
+        _rightAnswer = rightAnswer;
+        _answerOptions = answerOptions;
+        _category = category;
     }
 
+    protected void setQuestText(String textQuest){
+        _text = textQuest;
+    }
+
+    protected void setRightAnswer(String rightAns){
+        _rightAnswer = rightAns;
+    }
+
+    protected void setDifficulty(Diffucilty diffucilty){
+        _difficulty = diffucilty;
+    }
+
+    protected void setAnswerOptions(List<String> options){
+        _answerOptions = options;
+    }
+
+    protected String getQuestText(){
+        return _text;
+    }
+
+    protected String getRightAnswer() {
+        return _rightAnswer;
+    }
+
+    protected String getCategory() {
+        return _category;
+    }
+
+    protected void setCategory(String category){
+        _category = category;
+    }
+
+    protected Diffucilty getDifficulty() {
+        return _difficulty;
+    }
+
+    protected List<String> getAnswerOptions() {
+        return _answerOptions;
+    }
 }

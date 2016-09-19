@@ -1,5 +1,7 @@
 package com.santor.game;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,4 +41,31 @@ public class MainActivity extends AppCompatActivity {
         btnNewGame.setOnClickListener(oclBtnNewGame);
     }
 
+    @Override
+    public void onBackPressed() {
+        openQuitDialog();
+    }
+
+    private void openQuitDialog() {
+        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
+                MainActivity.this);
+        quitDialog.setTitle("Вы уверены что хотите выйти?");
+
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                finish();
+            }
+        });
+
+        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        quitDialog.show();
+    }
 }
