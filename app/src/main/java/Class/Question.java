@@ -73,4 +73,8 @@ public class Question {
     protected List<String> getAnswerOptions() {
         return _answerOptions;
     }
+
+    protected boolean checkAnswer(String answer) {
+        return answer.equals(this._rightAnswer);
+    }
 }
