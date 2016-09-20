@@ -20,12 +20,12 @@ public class Game {
     @Getter @Setter private static Integer lives;
     @Getter @Setter private static ArrayList questions;
 
-    public Game(Diffucilty difficulty, Integer score, Integer questionsCount, Integer currentQuestionNumber, Player player, Integer lives, ArrayList questions) {
-        this.difficulty = difficulty;
-        this.score = score;
-        this.questionsCount = questionsCount;
-        this.currentQuestionNumber = currentQuestionNumber;
+    public Game(Player player, Diffucilty difficulty, Integer questionsCount, Integer lives) {
         this.player = player;
+        this.difficulty = difficulty;
+        this.questionsCount = questionsCount;
+        this.score = 0;
+        this.currentQuestionNumber = 0;
         this.lives = lives;
         this.questions = questions;
     }
@@ -47,11 +47,11 @@ public class Game {
     }
 
     public void incLives(){
-        this.lives = lives++;
+        this.lives++;
     }
 
     public void decLives(){
-        this.lives = lives--;
+        this.lives--;
     }
 
     public void NextQuestion(){
