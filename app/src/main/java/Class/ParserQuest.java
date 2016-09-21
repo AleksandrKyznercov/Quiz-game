@@ -15,15 +15,15 @@ import java.util.Objects;
  */
 public class ParserQuest extends Activity {
 
-    List<Question> _questList = new ArrayList<>();
+    List<Question> questList = new ArrayList<>();
     String category,quest_text,rightAnswer = "";
     List<String> options = new ArrayList<>();
-    Diffucilty diffucilty = null;
+    Difficulty difficulty = null;
 
     /**
      * Получить все вопросы по всем категориям
      */
-    public List<Question> getAllQuestion(){
+    public List<Question> getQuestions(){
         try {
             XmlPullParser parserFile = directoryParse();
             while (parserFile.getEventType()!= XmlPullParser.END_DOCUMENT) {
@@ -47,32 +47,32 @@ public class ParserQuest extends Activity {
                     if(parserFile.getName().equals("Diffucilty")){
                         switch (parserFile.getText().toLowerCase()){
                             case "low" :
-                                diffucilty = Diffucilty.Low;
+                                difficulty = Difficulty.Low;
                             case "medium" :
-                                diffucilty = Diffucilty.Medium;
+                                difficulty = Difficulty.Medium;
                             case "hard" :
-                                diffucilty = Diffucilty.Hard;
+                                difficulty = Difficulty.Hard;
                         }
                     }
-                    _questList.add(new Question(quest_text,diffucilty,rightAnswer,options,category));
+                    questList.add(new Question(quest_text, difficulty, rightAnswer, options, category));
                 }
                 parserFile.next();
             }
         }catch (Exception e){
             //Написать обработчик
         }
-        return _questList;
+        return questList;
     }
 
     /**
      * Получить вопросы по определённой категории и сложностью
      */
-    public List<Question> getQuestOfParametrs(String category, Diffucilty diffucilty){
+    public List<Question> getQuestOfParametrs(String category, Difficulty difficulty) {
 
         List<Question> newQuestions = new ArrayList<>();
 
-        for(Question question : _questList){
-            if(Objects.equals(question.getCategory(), category) && question.getDifficulty() == diffucilty){
+        for (Question question : questList) {
+            if (Objects.equals(question.getCategory(), category) && question.getDifficulty() == difficulty) {
                 newQuestions.add(question);
             }
         }
@@ -84,7 +84,7 @@ public class ParserQuest extends Activity {
      * Получить общее количество вопросов
      */
     public int getCountQuest(){
-        return _questList.size();
+        return questList.size();
     }
 
     /**

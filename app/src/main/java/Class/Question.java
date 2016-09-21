@@ -3,78 +3,75 @@ package Class;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Created by SANTOR_user on 18.09.2016.
  */
 public class Question {
 
-    protected String _text;
-    protected Diffucilty _difficulty;
-    protected String _rightAnswer;
-    protected List<String> _answerOptions;
-    protected QuestionType _questionType;
-    protected String _category;
+    protected String text;
+    protected Difficulty difficulty;
+    protected String rightAnswer;
+    protected List<String> answerOptions;
+    protected QuestionType questionType;
+    protected String category;
 
-    public Question(String text, Diffucilty difficulty, String rightAnswer, ArrayList answerOptions, QuestionType questionType) {
-        _text = text;
-        _difficulty = difficulty;
+    public Question(String text, Difficulty difficulty, String rightAnswer, ArrayList answerOptions, QuestionType questionType) {
+        this.text = text;
+        this.difficulty = difficulty;
         //this.rightAnswer = this.new Answer(rightAnswer);
-        _answerOptions = answerOptions;
-        _questionType = questionType;
+        this.answerOptions = answerOptions;
+        this.questionType = questionType;
     }
 
-    public Question(String text, Diffucilty difficulty, String rightAnswer, List answerOptions, String category) {
-        _text = text;
-        _difficulty = difficulty;
-        _rightAnswer = rightAnswer;
-        _answerOptions = answerOptions;
-        _category = category;
+    public Question(String text, Difficulty difficulty, String rightAnswer, List answerOptions, String category) {
+        this.text = text;
+        this.difficulty = difficulty;
+        this.rightAnswer = rightAnswer;
+        this.answerOptions = answerOptions;
+        this.category = category;
     }
 
     protected void setQuestText(String textQuest){
-        _text = textQuest;
+        text = textQuest;
     }
 
     protected void setRightAnswer(String rightAns){
-        _rightAnswer = rightAns;
+        rightAnswer = rightAns;
     }
 
-    protected void setDifficulty(Diffucilty diffucilty){
-        _difficulty = diffucilty;
+    protected void setDifficulty(Difficulty diffucilty){
+        difficulty = diffucilty;
     }
 
     protected void setAnswerOptions(List<String> options){
-        _answerOptions = options;
+        answerOptions = options;
     }
 
     protected String getQuestText(){
-        return _text;
+        return text;
     }
 
     protected String getRightAnswer() {
-        return _rightAnswer;
+        return rightAnswer;
     }
 
     protected String getCategory() {
-        return _category;
+        return category;
     }
 
     protected void setCategory(String category){
-        _category = category;
+        this.category = category;
     }
 
-    protected Diffucilty getDifficulty() {
-        return _difficulty;
+    protected Difficulty getDifficulty() {
+        return difficulty;
     }
 
     protected List<String> getAnswerOptions() {
-        return _answerOptions;
+        return answerOptions;
     }
 
     protected boolean checkAnswer(String answer) {
-        return answer.equals(this._rightAnswer);
+        return answer.equals(this.rightAnswer);
     }
 }

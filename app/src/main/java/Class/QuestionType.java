@@ -8,7 +8,22 @@ import lombok.Setter;
  */
 public class QuestionType {
 
-    @Getter @Setter private static String name;
-    @Getter @Setter private static String text;
+    private static String name;
+    private static String text;
 
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        QuestionType.name = name;
+    }
+
+    public static String getText() {
+        return text;
+    }
+
+    public static void setText(String text) {
+        QuestionType.text = text;
+    }
 }

@@ -10,7 +10,22 @@ import java.util.ArrayList;
  */
 public class Category {
 
-    @Getter @Setter private static String name;
-    @Getter @Setter private static ArrayList questionTypes;
+    private static String name;
+    private static ArrayList questionTypes;
 
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        Category.name = name;
+    }
+
+    public static ArrayList getQuestionTypes() {
+        return questionTypes;
+    }
+
+    public static void setQuestionTypes(ArrayList questionTypes) {
+        Category.questionTypes = questionTypes;
+    }
 }
