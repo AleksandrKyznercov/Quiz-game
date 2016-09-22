@@ -22,8 +22,9 @@ public class QuestionsParser extends Activity {
      */
     public List<Question> getQuestions(){
         String  questionText = "",
+                questionType = "",
                 rightAnswer = "";
-        Category category = new Category();
+        Category category;
         ArrayList<String> options = new ArrayList();
         Difficulty difficulty = null;
 
@@ -32,7 +33,7 @@ public class QuestionsParser extends Activity {
             while (parserFile.getEventType()!= XmlPullParser.END_DOCUMENT) {
                 if(parserFile.getEventType() == XmlPullParser.START_TAG && parserFile.getName().contains("question")){
                     if(parserFile.getName().equals("category"))
-                        category.setName(parserFile.getText());
+                        category = new Category(parserFile.getText());
 
                     if(parserFile.getName().equals("questText"))
                         questionText = parserFile.getText();
@@ -47,6 +48,9 @@ public class QuestionsParser extends Activity {
                         }
                     }
 
+                    if(parserFile.getName().equals("questionType"))
+                        questionType = parserFile.getText();
+
                     if(parserFile.getName().equals("Diffucilty")){
                         switch (parserFile.getText().toLowerCase()){
                             case "low" :
@@ -57,7 +61,7 @@ public class QuestionsParser extends Activity {
                                 difficulty = Difficulty.Hard;
                         }
                     }
-                    questList.add(new Question(questionText, difficulty, rightAnswer, options, category));
+                    questList.add(new Question(questionText, difficulty, rightAnswer, options, new QuestionType(questionType)));
                 }
                 parserFile.next();
             }

@@ -22,12 +22,13 @@ public class Question {
         this.questionType = questionType;
     }
 
-    public Question(String text, Difficulty difficulty, String rightAnswer, ArrayList answerOptions, Category category) {
+    public Question(String text, Difficulty difficulty, String rightAnswer, ArrayList answerOptions, Category category, QuestionType questionType) {
         this.text = text;
         this.difficulty = difficulty;
         this.rightAnswer = rightAnswer;
         this.answerOptions = answerOptions;
         this.category = category;
+        this.questionType = questionType;
     }
 
     public String getText() {

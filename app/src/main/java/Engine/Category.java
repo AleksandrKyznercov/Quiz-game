@@ -10,6 +10,10 @@ public class Category {
     private static String name;
     private static ArrayList questionTypes;
 
+    public Category(String name) {
+        this.name = name;
+    }
+
     public static String getName() {
         return name;
     }
