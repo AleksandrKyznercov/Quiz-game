@@ -1,7 +1,4 @@
-package Class;
-
-import lombok.Getter;
-import lombok.Setter;
+package Engine;
 
 /**
  * Created by SANTOR_user on 17.09.2016.

@@ -1,26 +1,22 @@
-package Class;
-
-import lombok.Getter;
-import lombok.Setter;
+package Engine;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by SANTOR_user on 17.09.2016.
  */
 
-public class Game {
+public class Match {
 
     private Difficulty difficulty;
     private Integer score;
     private Integer questionsCount;
     private Integer currentQuestionNumber;
-    private Player player;
+    private final Player player;
     private Integer lives;
     private ArrayList questions;
 
-    public Game(Player player, Difficulty difficulty, Integer questionsCount, Integer lives) {
+    public Match(Player player, Difficulty difficulty, Integer questionsCount, Integer lives) {
         this.player = player;
         this.difficulty = difficulty;
         this.questionsCount = questionsCount;
@@ -66,10 +62,6 @@ public class Game {
         return player;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
     public Integer getLives() {
         return lives;
     }
@@ -86,20 +78,20 @@ public class Game {
         this.questions = questions;
     }
 
-    public void startGame(){
+    public void start(){
 
     }
 
-    public void stopGame(){
+    public void stop(){
 
     }
 
-    public void addQuestion(/*Параметры*/){
-       // questions.add(/*new Question(Параметры)*/)
+    public void addQuestion(Question question){
+       this.questions.add(question);
     }
 
-    public void getQuestion(){
-
+    public Question getQuestion(int number){
+        return (Question)this.questions.get(number);
     }
 
     public void incLives(){
@@ -111,11 +103,11 @@ public class Game {
     }
 
     public void NextQuestion(){
-
+        this.currentQuestionNumber++;
     }
 
     public void prevQuestion(){
-
+        this.currentQuestionNumber--;
     }
 
 }

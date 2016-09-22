@@ -1,4 +1,4 @@
-package Class;
+package Engine;
 
 import android.app.Activity;
 
@@ -13,26 +13,29 @@ import java.util.Objects;
 /**
  * Created by Станислав on 19.09.2016.
  */
-public class ParserQuest extends Activity {
+public class QuestionsParser extends Activity {
 
-    List<Question> questList = new ArrayList<>();
-    String category,quest_text,rightAnswer = "";
-    List<String> options = new ArrayList<>();
-    Difficulty difficulty = null;
+    private ArrayList<Question> questList = new ArrayList();
 
     /**
      * Получить все вопросы по всем категориям
      */
     public List<Question> getQuestions(){
+        String  questionText = "",
+                rightAnswer = "";
+        Category category = new Category();
+        ArrayList<String> options = new ArrayList();
+        Difficulty difficulty = null;
+
         try {
             XmlPullParser parserFile = directoryParse();
             while (parserFile.getEventType()!= XmlPullParser.END_DOCUMENT) {
                 if(parserFile.getEventType() == XmlPullParser.START_TAG && parserFile.getName().contains("question")){
                     if(parserFile.getName().equals("category"))
-                        category = parserFile.getText();
+                        category.setName(parserFile.getText());
 
-                    if(parserFile.getName().equals("quest_text"))
-                        quest_text = parserFile.getText();
+                    if(parserFile.getName().equals("questText"))
+                        questionText = parserFile.getText();
 
                     if(parserFile.getName().equals("rightAnswer"))
                         rightAnswer = parserFile.getText();
@@ -54,7 +57,7 @@ public class ParserQuest extends Activity {
                                 difficulty = Difficulty.Hard;
                         }
                     }
-                    questList.add(new Question(quest_text, difficulty, rightAnswer, options, category));
+                    questList.add(new Question(questionText, difficulty, rightAnswer, options, category));
                 }
                 parserFile.next();
             }

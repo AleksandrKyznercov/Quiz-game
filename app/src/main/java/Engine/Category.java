@@ -1,7 +1,4 @@
-package Class;
-
-import lombok.Getter;
-import lombok.Setter;
+package Engine;
 
 import java.util.ArrayList;
 
