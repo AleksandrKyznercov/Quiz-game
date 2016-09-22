@@ -1,4 +1,4 @@
-package Engine;
+package engine;
 
 import android.app.Activity;
 
@@ -54,11 +54,11 @@ public class QuestionsParser extends Activity {
                     if(parserFile.getName().equals("Diffucilty")){
                         switch (parserFile.getText().toLowerCase()){
                             case "low" :
-                                difficulty = Difficulty.Low;
+                                difficulty = Difficulty.low;
                             case "medium" :
-                                difficulty = Difficulty.Medium;
+                                difficulty = Difficulty.medium;
                             case "hard" :
-                                difficulty = Difficulty.Hard;
+                                difficulty = Difficulty.hard;
                         }
                     }
                     questList.add(new Question(questionText, difficulty, rightAnswer, options, new QuestionType(questionType)));

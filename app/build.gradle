@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 23
     buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "com.santor.game"
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -22,7 +22,9 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile files('libs/lombok.jar')
-    provided 'org.glassfish:javax.annotation:10.0-b28'//Возможно это костыль для генерации анотаций в lombok :D
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+    //Возможно это костыль для генерации анотаций в lombok :D
+    testCompile "org.robolectric:robolectric:3.1.2"
+    testCompile 'org.khronos:opengl-api:gl1.1-android-2.1_r1'
 }

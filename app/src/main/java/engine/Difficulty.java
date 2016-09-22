@@ -1,13 +1,13 @@
-package Engine;
+package engine;
 
 /**
  * 3 вида сложности
  */
 public enum Difficulty {
 
-    Low("low"),
-    Medium ("medium"),
-    Hard("hard");
+    low("low"),
+    medium ("medium"),
+    hard("hard");
 
     private final String difficulty;
 
