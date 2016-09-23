@@ -1,12 +1,14 @@
 package engine;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 /**
  * Created by SANTOR_user on 17.09.2016.
  */
 
-public class Match {
+public abstract class AbstractMatch {
 
     private Difficulty difficulty;
     private Integer score;
@@ -16,7 +18,7 @@ public class Match {
     private Integer lives;
     private ArrayList questions;
 
-    public Match(Player player, Difficulty difficulty, Integer questionsCount, Integer lives) {
+    public AbstractMatch(Player player, Difficulty difficulty, Integer questionsCount, Integer lives, ArrayList<Question> questions) {
         this.player = player;
         this.difficulty = difficulty;
         this.questionsCount = questionsCount;
@@ -78,14 +80,6 @@ public class Match {
         this.questions = questions;
     }
 
-    public void start(){
-
-    }
-
-    public void stop(){
-
-    }
-
     public void addQuestion(Question question){
        this.questions.add(question);
     }
@@ -109,5 +103,9 @@ public class Match {
     public void prevQuestion(){
         this.currentQuestionNumber--;
     }
+
+    public abstract void start();
+
+    public abstract void stop();
 
 }
