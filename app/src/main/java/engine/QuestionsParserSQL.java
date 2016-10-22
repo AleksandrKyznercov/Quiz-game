@@ -5,12 +5,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by illestboy on 22.09.16.
  */
 
-public class QuestionsParserSQL {
+public class QuestionsParserSQL implements IQuestionParser {
 
     private Context activity;
 
@@ -60,6 +61,36 @@ public class QuestionsParserSQL {
         }
         cursor.close();
         return questions;
+    }
+
+    @Override
+    public List<Question> getQuestionsCount(Category category, Difficulty difficulty) {
+        return null;
+    }
+
+    @Override
+    public List<Question> getQuestionsCount(Difficulty difficulty) {
+        return null;
+    }
+
+    @Override
+    public List<Question> getQuestionsCount(Category category) {
+        return null;
+    }
+
+    @Override
+    public List<Question> getAllQuestions(Category category, Difficulty difficulty) {
+        return null;
+    }
+
+    @Override
+    public List<Question> getAllQuestions(Difficulty difficulty) {
+        return null;
+    }
+
+    @Override
+    public List<Question> getAllQuestions(Category category) {
+        return null;
     }
 }
 

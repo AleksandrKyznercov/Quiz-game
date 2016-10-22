@@ -10,6 +10,6 @@ public class Game {
 
     private ArrayList<Category> categories;
 
-    private QuestionsParser parser = new QuestionsParser();
+    private QuestionsParserXML parser = new QuestionsParserXML();
 
 }

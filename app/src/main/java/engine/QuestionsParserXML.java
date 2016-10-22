@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * Created by Станислав on 19.09.2016.
  */
-public class QuestionsParser extends Activity {
+public class QuestionsParserXML extends Activity {
 
     private ArrayList<Question> questList = new ArrayList();
 
